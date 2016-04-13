@@ -112,6 +112,7 @@ void UbloxM8Python::call_python(PyObject *callable, T const &data,
   if (callable) {
     // Ensure that the current thread is ready to call the Python C API
     PyGILState_STATE state = PyGILState_Ensure();
+    PyEval_InitThreads();
 
     // invoke the python function
     try {
